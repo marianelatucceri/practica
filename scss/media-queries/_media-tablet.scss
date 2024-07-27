@@ -1,0 +1,72 @@
+@media only screen and (min-width: 767px) and (max-width: 1023px) {
+    header{
+        height: 100vh;
+        width: 100%;
+        background-size: cover;
+        background-position: 38% 0;
+
+        nav{
+            div{
+                display: flex;
+                justify-content: flex-end;     
+                padding-right: 30px;
+                img{
+                    width: 28%;
+                    padding-left: 20px;
+                    padding-top: 40px;
+                }
+            }
+        }
+    }
+
+    main{
+        .container{
+          display: flex;
+          justify-content: space-evenly;
+          margin-top: 35px;
+          column-gap: 25px;
+          .card{
+            width: 32%;
+            border: none;
+            img{
+              max-width: 100%;
+            }
+            h3{
+              margin-top: 15px;
+              text-align: center;
+              font-family: RusticusStd;
+              font-size: 25px;
+            }
+            p{
+              text-align: center;
+              font-family: RusticusStd;
+              font-size: 20px;
+            }
+          }
+        }
+        .container-2{
+          display: flex;
+          justify-content: space-evenly;
+          margin-top: 35px;
+          .card{
+            width: 26%;
+            border: none;
+            img{
+              max-width: 100%;
+            }
+            h3{
+              margin-top: 15px;
+              text-align: center;
+              font-family: RusticusStd;
+              font-size: 25px;
+            }
+            p{
+              text-align: center;
+              font-family: RusticusStd;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+      
+}
