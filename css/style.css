@@ -101,6 +101,23 @@ main .container-2 .card p {
     padding-left: 20px;
     padding-top: 40px;
   }
+  header nav div div ul li a {
+    font-family: RusticusStd;
+    color: white !important;
+    font-size: 20px !important;
+    padding: 0 15px !important;
+  }
+  section {
+    height: 15vh;
+    margin-top: 35px;
+  }
+  section h2 {
+    padding: 15px;
+    text-align: center;
+    font-size: 35px;
+    font-family: RusticusStd;
+    color: rgba(0, 0, 0, 0.7);
+  }
   main .container {
     display: flex;
     justify-content: space-evenly;
@@ -118,12 +135,12 @@ main .container-2 .card p {
     margin-top: 15px;
     text-align: center;
     font-family: RusticusStd;
-    font-size: 25px;
+    font-size: 18px;
   }
   main .container .card p {
     text-align: center;
     font-family: RusticusStd;
-    font-size: 20px;
+    font-size: 15px;
   }
   main .container-2 {
     display: flex;
@@ -141,12 +158,12 @@ main .container-2 .card p {
     margin-top: 15px;
     text-align: center;
     font-family: RusticusStd;
-    font-size: 25px;
+    font-size: 18px;
   }
   main .container-2 .card p {
     text-align: center;
     font-family: RusticusStd;
-    font-size: 20px;
+    font-size: 15px;
   }
 }
 @media only screen and (min-width: 767px) and (max-width: 1023px) {
@@ -166,6 +183,23 @@ main .container-2 .card p {
     padding-left: 20px;
     padding-top: 40px;
   }
+  header nav div div ul li a {
+    font-family: RusticusStd;
+    color: white !important;
+    font-size: 25px !important;
+    padding: 0 15px !important;
+  }
+  section {
+    height: 15vh;
+    margin-top: 35px;
+  }
+  section h2 {
+    padding: 15px;
+    text-align: center;
+    font-size: 40px;
+    font-family: RusticusStd;
+    color: rgba(0, 0, 0, 0.7);
+  }
   main .container {
     display: flex;
     justify-content: space-evenly;
@@ -183,12 +217,12 @@ main .container-2 .card p {
     margin-top: 15px;
     text-align: center;
     font-family: RusticusStd;
-    font-size: 25px;
+    font-size: 20px;
   }
   main .container .card p {
     text-align: center;
     font-family: RusticusStd;
-    font-size: 20px;
+    font-size: 15px;
   }
   main .container-2 {
     display: flex;
@@ -230,6 +264,23 @@ main .container-2 .card p {
     width: 20%;
     padding-left: 20px;
     padding-top: 40px;
+  }
+  header nav div div ul li a {
+    font-family: RusticusStd;
+    color: white !important;
+    font-size: 30px !important;
+    padding: 0 15px !important;
+  }
+  section {
+    height: 15vh;
+    margin-top: 35px;
+  }
+  section h2 {
+    padding: 15px;
+    text-align: center;
+    font-size: 45px;
+    font-family: RusticusStd;
+    color: rgba(0, 0, 0, 0.7);
   }
   main .container {
     display: flex;

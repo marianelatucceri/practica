@@ -15,7 +15,31 @@
                     padding-left: 20px;
                     padding-top: 40px;
                 }
+                div{
+                    ul{
+                      li{
+                        a{
+                          font-family: RusticusStd;
+                          color: white !important;
+                          font-size: 20px !important;
+                          padding: 0 15px !important;
+                        }
+                      }
+                    }
+                }    
             }
+        }
+    }
+
+    section{
+        height: 15vh;
+        margin-top: 35px;
+        h2{
+          padding: 15px;
+          text-align: center;
+          font-size: 35px;
+          font-family: RusticusStd;
+          color: rgba(0, 0, 0, 0.7);
         }
     }
 
@@ -35,12 +59,12 @@
               margin-top: 15px;
               text-align: center;
               font-family: RusticusStd;
-              font-size: 25px;
+              font-size: 18px;
             }
             p{
               text-align: center;
               font-family: RusticusStd;
-              font-size: 20px;
+              font-size: 15px;
             }
           }
         }
@@ -58,15 +82,15 @@
               margin-top: 15px;
               text-align: center;
               font-family: RusticusStd;
-              font-size: 25px;
+              font-size: 18px;
             }
             p{
               text-align: center;
               font-family: RusticusStd;
-              font-size: 20px;
+              font-size: 15px;
             }
           }
         }
-      }
+    }
       
 }
