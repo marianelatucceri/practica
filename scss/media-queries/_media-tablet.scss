@@ -3,7 +3,9 @@
         height: 100vh;
         width: 100%;
         background-size: cover;
-        background-position: 55% 0;
+        background-position: 100% 35%;
+        background-attachment: fixed;
+        opacity: 0.9;
 
         nav{
             div{
@@ -20,7 +22,7 @@
                       li{
                         a{
                           font-family: RusticusStd;
-                          color: white !important;
+                          color: #C7C6D5!important;
                           font-size: 25px !important;
                           padding: 0 15px !important;
                         }
@@ -65,29 +67,6 @@
               text-align: center;
               font-family: RusticusStd;
               font-size: 15px;
-            }
-          }
-        }
-        .container-2{
-          display: flex;
-          justify-content: space-evenly;
-          margin-top: 35px;
-          .card{
-            width: 26%;
-            border: none;
-            img{
-              max-width: 100%;
-            }
-            h3{
-              margin-top: 15px;
-              text-align: center;
-              font-family: RusticusStd;
-              font-size: 25px;
-            }
-            p{
-              text-align: center;
-              font-family: RusticusStd;
-              font-size: 20px;
             }
           }
         }

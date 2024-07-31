@@ -1,12 +1,12 @@
 header {
-  background-image: url(https://avellaneda24.com/wp-content/uploads/2018/11/cerveza-artesanal4.jpg);
+  background-image: url("../assets/ginmano.jpg");
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
   background-size: cover;
-  background-position: 50% 0px;
+  background-position: 100% 35%;
   background-attachment: fixed;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 header nav div {
   display: flex;
@@ -15,14 +15,17 @@ header nav div {
 }
 header nav div img {
   width: 40%;
-  padding-left: 30px;
+  padding-left: 20px;
   padding-top: 40px;
 }
 header nav div div ul li a {
   font-family: RusticusStd;
-  color: white !important;
+  color: #C7C6D5 !important;
   font-size: 30px !important;
   padding: 0 15px !important;
+}
+header nav div div ul li a:hover {
+  text-decoration: underline;
 }
 
 section {
@@ -41,6 +44,7 @@ main .container {
   display: flex;
   justify-content: space-evenly;
   margin-top: 35px;
+  margin-bottom: 70px;
 }
 main .container .card {
   width: 25%;
@@ -60,36 +64,15 @@ main .container .card p {
   font-family: RusticusStd;
   font-size: 20px;
 }
-main .container-2 {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 35px;
-}
-main .container-2 .card {
-  width: 22%;
-  border: none;
-}
-main .container-2 .card img {
-  max-width: 100%;
-}
-main .container-2 .card h3 {
-  margin-top: 15px;
-  text-align: center;
-  font-family: RusticusStd;
-  font-size: 25px;
-}
-main .container-2 .card p {
-  text-align: center;
-  font-family: RusticusStd;
-  font-size: 20px;
-}
 
 @media only screen and (max-width: 767px) {
   header {
     height: 100vh;
     width: 100%;
     background-size: cover;
-    background-position: 60% 0;
+    background-position: 100% 35%;
+    background-attachment: fixed;
+    opacity: 0.9;
   }
   header nav div {
     display: flex;
@@ -103,7 +86,7 @@ main .container-2 .card p {
   }
   header nav div div ul li a {
     font-family: RusticusStd;
-    color: white !important;
+    color: #C7C6D5 !important;
     font-size: 20px !important;
     padding: 0 15px !important;
   }
@@ -142,36 +125,15 @@ main .container-2 .card p {
     font-family: RusticusStd;
     font-size: 15px;
   }
-  main .container-2 {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 35px;
-  }
-  main .container-2 .card {
-    width: 26%;
-    border: none;
-  }
-  main .container-2 .card img {
-    max-width: 100%;
-  }
-  main .container-2 .card h3 {
-    margin-top: 15px;
-    text-align: center;
-    font-family: RusticusStd;
-    font-size: 18px;
-  }
-  main .container-2 .card p {
-    text-align: center;
-    font-family: RusticusStd;
-    font-size: 15px;
-  }
 }
 @media only screen and (min-width: 767px) and (max-width: 1023px) {
   header {
     height: 100vh;
     width: 100%;
     background-size: cover;
-    background-position: 55% 0;
+    background-position: 100% 35%;
+    background-attachment: fixed;
+    opacity: 0.9;
   }
   header nav div {
     display: flex;
@@ -185,7 +147,7 @@ main .container-2 .card p {
   }
   header nav div div ul li a {
     font-family: RusticusStd;
-    color: white !important;
+    color: #C7C6D5 !important;
     font-size: 25px !important;
     padding: 0 15px !important;
   }
@@ -224,36 +186,15 @@ main .container-2 .card p {
     font-family: RusticusStd;
     font-size: 15px;
   }
-  main .container-2 {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 35px;
-  }
-  main .container-2 .card {
-    width: 26%;
-    border: none;
-  }
-  main .container-2 .card img {
-    max-width: 100%;
-  }
-  main .container-2 .card h3 {
-    margin-top: 15px;
-    text-align: center;
-    font-family: RusticusStd;
-    font-size: 25px;
-  }
-  main .container-2 .card p {
-    text-align: center;
-    font-family: RusticusStd;
-    font-size: 20px;
-  }
 }
 @media only screen and (min-width: 1023px) {
   header {
     height: 100vh;
     width: 100%;
     background-size: cover;
-    background-position: 45% 0;
+    background-position: 100% 21%;
+    background-attachment: fixed;
+    opacity: 0.9;
   }
   header nav div {
     display: flex;
@@ -265,11 +206,17 @@ main .container-2 .card p {
     padding-left: 20px;
     padding-top: 40px;
   }
+  header nav div .navbar-toggler {
+    color: #C7C6D5;
+  }
   header nav div div ul li a {
     font-family: RusticusStd;
-    color: white !important;
+    color: #C7C6D5 !important;
     font-size: 30px !important;
     padding: 0 15px !important;
+  }
+  header nav div div ul li a:hover {
+    text-decoration: underline;
   }
   section {
     height: 15vh;
@@ -302,29 +249,6 @@ main .container-2 .card p {
     font-size: 25px;
   }
   main .container .card p {
-    text-align: center;
-    font-family: RusticusStd;
-    font-size: 20px;
-  }
-  main .container-2 {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 35px;
-  }
-  main .container-2 .card {
-    width: 26%;
-    border: none;
-  }
-  main .container-2 .card img {
-    max-width: 100%;
-  }
-  main .container-2 .card h3 {
-    margin-top: 15px;
-    text-align: center;
-    font-family: RusticusStd;
-    font-size: 25px;
-  }
-  main .container-2 .card p {
     text-align: center;
     font-family: RusticusStd;
     font-size: 20px;
