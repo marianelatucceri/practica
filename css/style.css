@@ -206,9 +206,6 @@ main .container .card p {
     padding-left: 20px;
     padding-top: 40px;
   }
-  header nav div .navbar-toggler {
-    color: #C7C6D5;
-  }
   header nav div div ul li a {
     font-family: RusticusStd;
     color: #C7C6D5 !important;
