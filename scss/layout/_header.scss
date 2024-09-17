@@ -33,6 +33,10 @@ header{
             }
           }
         }
+        i{
+          cursor: pointer;
+          padding-left: 15px;        
+        }
       }    
     }
   }  
@@ -72,6 +76,13 @@ main{
         text-align: center;
         font-family: RusticusStd;
         font-size: 20px;
+      }
+      button{
+        font-family: RusticusStd;
+        font-size: 22px;
+        padding: 5px;
+        border: none;
+        border-radius: 30px;
       }
     }
   }
