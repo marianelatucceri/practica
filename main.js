@@ -21,24 +21,6 @@ let productos = [
      precio: 50000,
      img: "assets/whisky.blanco.png",
     },
-    {
-     id: 4,
-     nombre: "Apa", 
-     precio: 4000,
-     img: "assets/apa.png",
-    },
-    {
-     id: 5,
-     nombre: "Cream Sour Stout", 
-     precio: 4000,
-     img: "assets/cream.stout.png",
-    },
-    {
-     id: 6,
-     nombre: "Tripel", 
-     precio: 5000,
-     img: "assets/tripel.png",
-    },
 ];
 console.log(productos)
 
@@ -49,16 +31,19 @@ let carrito = [];
 // Método forEach para recorrer el Array
 productos.forEach((producto) => {
     let contenedor = document.createElement("div");  // Creamos elemento
+    contenedor.className = "card";  // Le asigno una clase al contenedor
+    
     contenedor.innerHTML = `
       <img src="${producto.img}">
       <h3>${producto.nombre}</h3>    
-      <p>$${producto.precio}</p>
+      <p class="precio">$${producto.precio}</p>
     `;   // Creamos las etiquetas del HTML
 
     contenedorProd.append(contenedor);  //Llamo al div padre y le agrego todo el contenido del contenedor
 
     let agregarCarrito = document.createElement("button"); //Creamos elemento
     agregarCarrito.innerText = "Agregar al carrito"; // Agregamos el texto del boton
+    agregarCarrito.className = "boton"; // Le asigno una clase al boton
 
     contenedor.append(agregarCarrito); //Le agrego el boton al div 
 });
