@@ -45,11 +45,11 @@ productos.forEach((producto) => {
 
     contenedorProd.append(contenedor);  //Llamo al div padre y le agrego todo el contenido del contenedor
 
-    let agregarCarrito = document.createElement("button"); //Creamos elemento
-    agregarCarrito.innerText = "Agregar al carrito"; // Agregamos el texto del boton
-    agregarCarrito.className = "boton"; // Le asigno una clase al boton
+    let agregarCarrito = document.createElement("button"); 
+    agregarCarrito.innerText = "Agregar al carrito"; 
+    agregarCarrito.className = "boton"; 
 
-    contenedor.append(agregarCarrito); //Le agrego el boton al div 
+    contenedor.append(agregarCarrito); 
 
     // EVENTO (cada vez que el usuario haga click sobre el boton, se pushea el producto dentro del carrito)
     agregarCarrito.addEventListener("click", () =>{
@@ -66,6 +66,10 @@ productos.forEach((producto) => {
 
 // EVENTO del carrito y creación de la ventana que muestra el interior 
 verCarrito.addEventListener("click", () => {
+    modalContainer.innerHTML = "";
+    modalContainer.style.display = "block";
+    // Cuando clikeo el carrito vuelvo a ver su contenido
+
     const modalHeader = document.createElement("div");
     modalHeader.className = "modal-header";
     modalHeader.innerHTML = `
