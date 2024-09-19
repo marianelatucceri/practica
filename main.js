@@ -1,8 +1,12 @@
 // Creo un div padre para vincular el js al html
-let contenedorProd = document.getElementById("contenedorProduct");
+const contenedorProd = document.getElementById("contenedorProduct");
+
+const verCarrito = document.getElementById("verCarrito");
+
+const modalContainer = document.getElementById("modal-container");
 
 // Array de productos
-let productos = [
+const productos = [
     {
      id: 1,
      nombre: "Gin Flowers & Berries", 
@@ -22,7 +26,7 @@ let productos = [
      img: "assets/whisky.blanco.png",
     },
 ];
-console.log(productos)
+
 
 // Carrito
 let carrito = [];
@@ -46,4 +50,62 @@ productos.forEach((producto) => {
     agregarCarrito.className = "boton"; // Le asigno una clase al boton
 
     contenedor.append(agregarCarrito); //Le agrego el boton al div 
+
+    // EVENTO (cada vez que el usuario haga click sobre el boton, se pushea el producto dentro del carrito)
+    agregarCarrito.addEventListener("click", () =>{
+        carrito.push({
+            id: producto.id,
+            nombre: producto.nombre,
+            precio: producto.precio,
+            img: producto.img,
+        });
+        console.log(carrito);
+    });
+});
+
+
+// EVENTO del carrito y creación de la ventana que muestra el interior 
+verCarrito.addEventListener("click", () => {
+    const modalHeader = document.createElement("div");
+    modalHeader.className = "modal-header";
+    modalHeader.innerHTML = `
+      <h1 class="modal-header-titulo">Carrito</h1>
+    `;
+
+    modalContainer.append(modalHeader);
+    // Creamos el Header de la ventana
+
+    const modalButton = document.createElement("h2");
+    modalButton.innerText = "X";
+    modalButton.className = "modal-header-button";
+
+    // Cuando clickeo la X la ventana se cierra
+    modalButton.addEventListener("click", () =>{
+        modalContainer.style.display = "none";
+    });   // Estilo display none de css
+
+    modalHeader.append(modalButton);
+
+    // Creamos los productos que se muestran por ventana
+    carrito.forEach((producto) => {
+        let carritoContent = document.createElement("div");
+        carritoContent.className = "modal-content";
+        carritoContent.innerHTML = `
+          <img src="${producto.img}">
+          <h3>${producto.nombre}</h3>    
+          <p class="precio">$${producto.precio}</p>   
+        `;
+
+        modalContainer.append(carritoContent);
+    });
+    
+
+    // Footer de ventana con el Total de productos
+    const total = carrito.reduce((acc, el) => acc + el.precio, 0);
+                            //acumulador //cada producto      
+    const totalPrecio = document.createElement("div");
+    totalPrecio.className = "total-content";
+    totalPrecio.innerHTML = `total a pagar: $${total}`;
+
+    modalContainer.append(totalPrecio);
 });
