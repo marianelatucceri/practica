@@ -27,6 +27,12 @@ const productos = [
     },
 ];
 
+// localStorage 
+const guardarLocal = (clave , valor) => { localStorage.setItem(clave, valor)};
+for (const producto of productos) {
+    guardarLocal("listaProductos", JSON.stringify(productos));
+}
+
 
 // Carrito
 let carrito = [];
