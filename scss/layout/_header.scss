@@ -35,8 +35,19 @@ header{
         }
         i{
           cursor: pointer;
-          padding-left: 15px;        
+          padding-left: 15px;
         }
+        .cantidad-carrito{
+          background-color: rgba(16, 16, 16, 0.707);
+          color: white;
+          border-radius: 50%;
+          font-size: 15px;
+          padding: 6px;
+          top: 165px;
+          right: 108px;
+          position: absolute;
+          display: none;
+        }        
       }    
     }
   }  

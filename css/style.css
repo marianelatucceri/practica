@@ -31,6 +31,17 @@ header nav div div i {
   cursor: pointer;
   padding-left: 15px;
 }
+header nav div div .cantidad-carrito {
+  background-color: rgba(16, 16, 16, 0.707);
+  color: white;
+  border-radius: 50%;
+  font-size: 15px;
+  padding: 6px;
+  top: 165px;
+  right: 108px;
+  position: absolute;
+  display: none;
+}
 
 section {
   height: 15vh;
@@ -319,6 +330,9 @@ div .card .boton:hover {
   text-align: center;
   padding: 20px;
   padding-top: 30px;
+}
+.modal-container .delete-product {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
