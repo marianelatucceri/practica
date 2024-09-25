@@ -7,6 +7,9 @@ const modalContainer = document.getElementById("modal-container");
 
 const cantidadCarrito = document.getElementById("cantidadCarrito");
 
+const modalFinal = document.getElementById("modal.finalizar");
+
+
 // Array de productos
 const productos = [
     {
@@ -105,7 +108,7 @@ JSON.parse(localStorage.getItem("carrito"));
 
 
 
-// EVENTO del carrito y creación de la ventana que muestra el interior 
+// EVENTO del carrito y creación del modal que muestra el interior 
 const pintarCarrito = () => {
     modalContainer.innerHTML = "";
     modalContainer.style.display = "block";
@@ -143,7 +146,7 @@ const pintarCarrito = () => {
           <p>Cantidad: ${producto.cantidad}</p>
           <span class="sumar"> + </span>
           <p>Total: $${producto.cantidad * producto.precio}</p>
-          <span class="delete-product"> ✕ </span>   
+          <span class="delete-product"> ✕ </span>  
         `;
 
         modalContainer.append(carritoContent);
@@ -184,7 +187,17 @@ const pintarCarrito = () => {
     totalPrecio.innerHTML = `total a pagar: $${total}`;
 
     modalContainer.append(totalPrecio);
+
+    const finalizarCompra = document.createElement("button");
+    finalizarCompra.innerText = "Finalizar compra";
+    finalizarCompra.className = "finalizar-compra";
+    modalContainer.append(finalizarCompra);
+
+    finalizarCompra.addEventListener("click", () => {
+        abrirFormularioCompra();
+    });
 };
+
 
 verCarrito.addEventListener("click", pintarCarrito);
 
@@ -215,3 +228,58 @@ const carritoContador = () => {
 }
 
 carritoContador();
+
+
+// Modal finalizar compra
+const abrirFormularioCompra = () => {
+    modalContainer.innerHTML = "";
+    modalContainer.style.display = "block";
+  
+    const modalHeader = document.createElement("div");
+    modalHeader.className = "modal-header";
+    modalHeader.innerHTML = `
+        <h1 class="modal-header-titulo">Finalizar Compra</h1>
+      `;
+    modalContainer.append(modalHeader);
+  
+    const modalButton = document.createElement("h2");
+    modalButton.innerText = "X";
+    modalButton.className = "modal-header-button";
+    modalButton.addEventListener("click", () => {
+      modalContainer.style.display = "none";
+    });
+    modalHeader.append(modalButton);
+  
+    const formulario = document.createElement("form");
+    formulario.className = "formulario-compra";
+    formulario.innerHTML = `
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required><br><br>
+        <button type="submit" class="confirmar-compra">Confirmar Compra</button>
+    `;
+
+  modalContainer.append(formulario);
+
+  formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const direccion = document.getElementById("direccion").value;
+
+    console.log("Nombre:", nombre);
+    console.log("Dirección:", direccion);
+
+    modalContainer.innerHTML = `
+          <h2 class="h2-m">Gracias, ${nombre}!</h2>
+          <p class="p">Su pedido será enviado a la dirección: ${direccion}.</p>
+          <button class="cerrar-modal">Cerrar</button>
+        `;
+
+    const cerrarModalBtn = document.querySelector(".cerrar-modal");
+    cerrarModalBtn.addEventListener("click", () => {
+      modalContainer.style.display = "none";
+    });
+  });
+};

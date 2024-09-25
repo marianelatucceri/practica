@@ -345,5 +345,56 @@ div .card .boton:hover {
   font-size: 20px;
   font-weight: bolder;
 }
+.modal-container .finalizar-compra {
+  background-color: rgba(26, 25, 25, 0.703);
+  color: white;
+  padding: 5px 25px;
+  border-radius: 10px;
+  font-family: RusticusStd;
+  font-size: 25px;
+  border: none;
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.modal-container .formulario-compra {
+  font-family: RusticusStd;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  font-size: 22px;
+}
+.modal-container .formulario-compra input {
+  border: none;
+  border-radius: 5px;
+}
+.modal-container .formulario-compra button {
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(26, 25, 25, 0.703);
+  color: white;
+  font-size: 25px;
+}
+.modal-container .h2-m {
+  font-family: RusticusStd;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.modal-container p {
+  font-family: RusticusStd;
+  margin-top: 30px;
+  margin-left: 50px;
+  font-size: 20px;
+}
+.modal-container .cerrar-modal {
+  font-family: RusticusStd;
+  margin-top: 30px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(26, 25, 25, 0.703);
+  color: white;
+  font-size: 20px;
+}
 
 /*# sourceMappingURL=style.css.map */

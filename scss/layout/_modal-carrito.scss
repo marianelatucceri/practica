@@ -73,4 +73,56 @@
         font-size: 20px;
         font-weight: bolder;
     }
+
+    .finalizar-compra{
+        background-color: rgba(26, 25, 25, 0.703);
+        color: white;
+        padding: 5px 25px;
+        border-radius: 10px;
+        font-family: RusticusStd;
+        font-size: 25px;
+        border: none;
+        display: block;
+        margin: auto;
+        margin-bottom: 30px;
+    }   
+    .formulario-compra{
+        font-family: RusticusStd;
+        margin-left: 50px;
+        margin-bottom: 50px;
+        font-size: 22px;
+        input{
+            border: none;
+            border-radius: 5px;
+        }
+        button{
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(26, 25, 25, 0.703);
+            color: white;
+            font-size: 25px;
+        }
+    }
+    .h2-m{
+        font-family: RusticusStd;
+        margin-top: 50px;
+        margin-left: 50px;
+    }
+    p{
+        font-family: RusticusStd;
+        margin-top: 30px;
+        margin-left: 50px;
+        font-size: 20px;
+    }
+    .cerrar-modal{
+        font-family: RusticusStd;
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-bottom: 50px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(26, 25, 25, 0.703);
+        color: white;
+        font-size: 20px;
+    }
 }
