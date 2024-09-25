@@ -308,6 +308,7 @@ div .card .boton:hover {
 }
 .modal-container .modal-header h2 {
   cursor: pointer;
+  font-family: RusticusStd;
 }
 .modal-container .modal-content {
   display: flex;
@@ -322,6 +323,14 @@ div .card .boton:hover {
   height: 120px;
   width: 120px;
 }
+.modal-container .modal-content .restar {
+  cursor: pointer;
+  font-size: 25px;
+}
+.modal-container .modal-content .sumar {
+  cursor: pointer;
+  font-size: 25px;
+}
 .modal-container .total-content {
   font-family: RusticusStd;
   background-color: rgb(189, 187, 187);
@@ -333,6 +342,8 @@ div .card .boton:hover {
 }
 .modal-container .delete-product {
   cursor: pointer;
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 /*# sourceMappingURL=style.css.map */

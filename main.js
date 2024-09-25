@@ -48,8 +48,8 @@ const productos = [
 
 
 // Carrito
-let carrito = [];
-
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+                     // getItem (localStorage)          // O  // Array vacío
 
 // Método forEach para recorrer el Array
 productos.forEach((producto) => {
@@ -88,11 +88,20 @@ productos.forEach((producto) => {
              img: producto.img,
              cantidad: producto.cantidad,
             });
-        };
-        console.log(carrito);
-        carritoContador();
+            carritoContador();
+            localSave();   // setItem (localStorage)
+        }
     });
 });
+
+
+
+// localStorage
+const localSave = () => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+JSON.parse(localStorage.getItem("carrito"));  
 
 
 
@@ -130,19 +139,40 @@ const pintarCarrito = () => {
           <img src="${producto.img}">
           <h3>${producto.nombre}</h3>    
           <p class="precio">$${producto.precio}</p>
+          <span class="restar"> - </span>
           <p>Cantidad: ${producto.cantidad}</p>
-          <p>Total: $${producto.cantidad * producto.precio}</p>   
+          <span class="sumar"> + </span>
+          <p>Total: $${producto.cantidad * producto.precio}</p>
+          <span class="delete-product"> ✕ </span>   
         `;
 
         modalContainer.append(carritoContent);
 
-        //Eliminar productos
-        let eliminar = document.createElement("span");
-        eliminar.innerText = "✕";
-        eliminar.className = "delete-product";
-        carritoContent.append(eliminar);
 
-        eliminar.addEventListener("click", eliminarProducto);
+        //Restar productos
+        let restar = carritoContent.querySelector(".restar");
+        restar.addEventListener("click", () => {
+            if(producto.cantidad !== 1) {
+               producto.cantidad--;
+            }
+            pintarCarrito();
+            localSave();
+        });
+
+        //Sumar productos
+        let sumar = carritoContent.querySelector(".sumar");
+        sumar.addEventListener("click", () => {
+            producto.cantidad++;
+            pintarCarrito();
+            localSave();
+        });
+
+
+        //Eliminar productos
+        let eliminar = carritoContent.querySelector(".delete-product");
+        eliminar.addEventListener("click", () => {
+            eliminarProducto(producto.id);
+        });
     });
 
 
@@ -159,14 +189,16 @@ const pintarCarrito = () => {
 verCarrito.addEventListener("click", pintarCarrito);
 
 // Función para eliminar el producto del carrito
-const eliminarProducto = () => {
-    const foundId = carrito.find ((elemento) => elemento.id);
+const eliminarProducto = (id) => {
+    const foundId = carrito.find ((elemento) => elemento.id === id);
 
     carrito = carrito.filter((carritoId) => {
         return carritoId !== foundId;
     });
-    
+
     carritoContador();
+
+    localSave();
 
     pintarCarrito();
 };
@@ -174,5 +206,12 @@ const eliminarProducto = () => {
 // Contador de prod del carrito
 const carritoContador = () => {
     cantidadCarrito.style.display = "block";
-    cantidadCarrito.innerText = carrito.length;
+
+    const carritoLength = carrito.length;
+    localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
+    // Agrego una variable al localStorage
+
+    cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
 }
+
+carritoContador();
