@@ -188,6 +188,7 @@ const pintarCarrito = () => {
 
     modalContainer.append(totalPrecio);
 
+    // Boton para Finalizar Compra
     const finalizarCompra = document.createElement("button");
     finalizarCompra.innerText = "Finalizar compra";
     finalizarCompra.className = "finalizar-compra";
@@ -230,7 +231,7 @@ const carritoContador = () => {
 carritoContador();
 
 
-// Modal finalizar compra
+// Modal Finalizar Compra
 const abrirFormularioCompra = () => {
     modalContainer.innerHTML = "";
     modalContainer.style.display = "block";
