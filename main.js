@@ -11,6 +11,8 @@ const modalFinal = document.getElementById("modal.finalizar");
 
 const formularioFooter = document.getElementById("form-footer");
 
+const formularioContacto = document.getElementById("form-contacto");
+
 
 // Array de productos
 const productos = [
@@ -51,23 +53,23 @@ const productos = [
     },
     {
      id: 6,
-     nombre: "Apa Beer", 
-     precio: 4200,
-     img: "assets/apa.png",
+     nombre: "Grappa", 
+     precio: 16900,
+     img: "assets/grappa.png",
      cantidad: 1,
     },
     {
      id: 7,
-     nombre: "Apa Beer", 
-     precio: 4200,
-     img: "assets/apa.png",
+     nombre: "Vodka Absol", 
+     precio: 9500,
+     img: "assets/vodka-abs.png",
      cantidad: 1,
     },
     {
      id: 8,
-     nombre: "Apa Beer", 
-     precio: 4200,
-     img: "assets/apa.png",
+     nombre: "Oaked Gin", 
+     precio: 14800,
+     img: "assets/oaked-gin.png",
      cantidad: 1,
     },
 ];
@@ -319,5 +321,37 @@ function validarFormulario(e){
     const email = document.getElementById("email").value;   
 
     const respuesta = document.getElementById("respuesta");
-    respuesta.textContent = `¡Hola ${nombreForm}! A la brevedad nos comunicaremos al email ${email}`;
+    respuesta.textContent = `¡Hola ${nombreForm}! A la brevedad recibirás todas las novedades al email ${email}`;
 };
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
