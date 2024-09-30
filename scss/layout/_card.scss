@@ -1,21 +1,28 @@
 div{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 30px;
-    margin-left: 80px;
-    margin-right: 80px;
-    margin-bottom: 40px;
+  width: 90%;
+  max-height: 1200px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-bottom: 40px;
     
     .card{
-      max-width: 300px;
+      max-width: 300px;  
       margin: auto;
+      margin: 20px auto;
       text-align: center;
       font-family: RusticusStd;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.41);
       img{
         width: 90%;
         height: 250px;
+        transition: 2s;
+          &:hover{
+            transform: scale(1.5);
+          }
       }
       .boton{
         border: none;
@@ -32,4 +39,4 @@ div{
       }
     }
   }
-  
+ 

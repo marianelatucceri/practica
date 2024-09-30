@@ -9,6 +9,8 @@ const cantidadCarrito = document.getElementById("cantidadCarrito");
 
 const modalFinal = document.getElementById("modal.finalizar");
 
+const formularioFooter = document.getElementById("form-footer");
+
 
 // Array de productos
 const productos = [
@@ -42,6 +44,27 @@ const productos = [
     },
     {
      id: 5,
+     nombre: "Apa Beer", 
+     precio: 4200,
+     img: "assets/apa.png",
+     cantidad: 1,
+    },
+    {
+     id: 6,
+     nombre: "Apa Beer", 
+     precio: 4200,
+     img: "assets/apa.png",
+     cantidad: 1,
+    },
+    {
+     id: 7,
+     nombre: "Apa Beer", 
+     precio: 4200,
+     img: "assets/apa.png",
+     cantidad: 1,
+    },
+    {
+     id: 8,
      nombre: "Apa Beer", 
      precio: 4200,
      img: "assets/apa.png",
@@ -274,7 +297,7 @@ const abrirFormularioCompra = () => {
 
     modalContainer.innerHTML = `
           <h2 class="h2-m">Gracias, ${nombre}!</h2>
-          <p class="p">Su pedido será enviado a la dirección: ${direccion}.</p>
+          <p class="p-m">Su pedido será enviado a la dirección: ${direccion}.</p>
           <button class="cerrar-modal">Cerrar</button>
         `;
 
@@ -283,4 +306,18 @@ const abrirFormularioCompra = () => {
       modalContainer.style.display = "none";
     });
   });
+};
+
+
+// Formulario Footer
+formularioFooter.addEventListener ("submit", validarFormulario);
+
+function validarFormulario(e){
+    e.preventDefault();
+
+    const nombreForm = document.getElementById("nombreForm").value;
+    const email = document.getElementById("email").value;   
+
+    const respuesta = document.getElementById("respuesta");
+    respuesta.textContent = `¡Hola ${nombreForm}! A la brevedad nos comunicaremos al email ${email}`;
 };
