@@ -468,11 +468,9 @@ footer section .footer-mail form button {
   margin-bottom: 40px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.41);
 }
-footer section .footer-mail .respuesta {
+
+.titulo {
   font-family: RusticusStd;
-  font-size: 22px;
-  margin-bottom: 15px;
-  color: rgb(243, 250, 250);
 }
 
 /*# sourceMappingURL=style.css.map */

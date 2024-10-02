@@ -11,7 +11,7 @@ const modalFinal = document.getElementById("modal.finalizar");
 
 const formularioFooter = document.getElementById("form-footer");
 
-const formularioContacto = document.getElementById("form-contacto");
+
 
 
 // Array de productos
@@ -127,10 +127,16 @@ productos.forEach((producto) => {
 
 // localStorage
 const localSave = () => {
+    
     localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("formFooter", JSON.stringify(formularioFooter));
+    
 }
 
-JSON.parse(localStorage.getItem("carrito"));  
+JSON.parse(localStorage.getItem("carrito"));
+JSON.parse(localStorage.getItem("formFooter"));
+
+ 
 
 
 
@@ -257,6 +263,8 @@ const carritoContador = () => {
 carritoContador();
 
 
+
+
 // Modal Finalizar Compra
 const abrirFormularioCompra = () => {
     modalContainer.innerHTML = "";
@@ -287,10 +295,12 @@ const abrirFormularioCompra = () => {
         <button type="submit" class="confirmar-compra">Confirmar Compra</button>
     `;
 
+  
   modalContainer.append(formulario);
 
   formulario.addEventListener("submit", (e) => {
     e.preventDefault();
+
 
     const nombre = document.getElementById("nombre").value;
     const direccion = document.getElementById("direccion").value;
@@ -307,12 +317,16 @@ const abrirFormularioCompra = () => {
     const cerrarModalBtn = document.querySelector(".cerrar-modal");
     cerrarModalBtn.addEventListener("click", () => {
       modalContainer.style.display = "none";
-    });
-  });
+
+    });   
+  }) 
 };
 
 
-// Formulario Footer
+
+
+
+// Formulario del Footer
 formularioFooter.addEventListener ("submit", validarFormulario);
 
 function validarFormulario(e){
@@ -325,14 +339,24 @@ function validarFormulario(e){
         position: "center",
         icon: "success",
         title: "¡Bienvenido/a al Reino!",
-        text: `Listo ${nombreForm}, enviaremos toda la info al email ${email}`,
+        text: `${nombreForm}, te enviaremos toda la info al email ${email}`,
         showConfirmButton: false,
-        timer: 3500
-    });
+        timer: 3500,
+        customClass: {
+            title: "titulo"
+        }
+    }); 
+
+    localSave()
 };
 
 const respuesta = document.getElementById("boton-form");
-respuesta.addEventListener("click",boton-form);
+respuesta.addEventListener("submit", () => {
+    validarFormulario();
+});
+
+
+
 
 
 
