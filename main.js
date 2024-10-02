@@ -92,6 +92,7 @@ productos.forEach((producto) => {
 
     contenedorProd.append(contenedor);  //Llamo al div padre y le agrego todo el contenido del contenedor
 
+    // Boton Agregar al carrito
     let agregarCarrito = document.createElement("button"); 
     agregarCarrito.innerText = "Agregar al carrito"; 
     agregarCarrito.className = "boton"; 
@@ -320,9 +321,25 @@ function validarFormulario(e){
     const nombreForm = document.getElementById("nombreForm").value;
     const email = document.getElementById("email").value;   
 
-    const respuesta = document.getElementById("respuesta");
-    respuesta.textContent = `¡Hola ${nombreForm}! A la brevedad recibirás todas las novedades al email ${email}`;
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "¡Bienvenido/a al Reino!",
+        text: `Listo ${nombreForm}, enviaremos toda la info al email ${email}`,
+        showConfirmButton: false,
+        timer: 3500
+    });
 };
+
+const respuesta = document.getElementById("boton-form");
+respuesta.addEventListener("click",boton-form);
+
+
+
+
+
+
+
 
 
 
