@@ -1,0 +1,58 @@
+[
+    {
+     "id": 1,
+     "nombre": "Gin Flowers & Berries", 
+     "precio": 23000,
+     "img": "assets/flowers.berries.png",
+     "cantidad": 1
+    },
+    {
+     "id": 2,
+     "nombre": "Gin London Dry", 
+     "precio": 20000,
+     "img": "assets/london.dry.png",
+     "cantidad": 1
+    },
+    {
+     "id": 3,
+     "nombre": "Whisky Blanco",
+     "precio": 50000,
+     "img": "assets/whisky.blanco.png",
+     "cantidad": 1
+    },
+    {
+     "id": 4,
+     "nombre": "Tripel Beer", 
+     "precio": 4000,
+     "img": "assets/tripel.png",
+     "cantidad": 1
+    },
+    {
+     "id": 5,
+     "nombre": "Apa Beer", 
+     "precio": 4200,
+     "img": "assets/apa.png",
+     "cantidad": 1
+    },
+    {
+     "id": 6,
+     "nombre": "Grappa", 
+     "precio": 16900,
+     "img": "assets/grappa.png",
+     "cantidad": 1
+    },
+    {
+     "id": 7,
+     "nombre": "Vodka Absol", 
+     "precio": 9500,
+     "img": "assets/vodka-abs.png",
+     "cantidad": 1
+    },
+    {
+     "id": 8,
+     "nombre": "Oaked Gin", 
+     "precio": 14800,
+     "img": "assets/oaked-gin.png",
+     "cantidad": 1
+    }
+]

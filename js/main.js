@@ -14,114 +14,61 @@ const formularioFooter = document.getElementById("form-footer");
 
 
 
-// Array de productos
-const productos = [
-    {
-     id: 1,
-     nombre: "Gin Flowers & Berries", 
-     precio: 23000,
-     img: "assets/flowers.berries.png",
-     cantidad: 1,
-    },
-    {
-     id: 2,
-     nombre: "Gin London Dry", 
-     precio: 20000,
-     img: "assets/london.dry.png",
-     cantidad: 1,
-    },
-    {
-     id: 3,
-     nombre: "Whisky Blanco",
-     precio: 50000,
-     img: "assets/whisky.blanco.png",
-     cantidad: 1,
-    },
-    {
-     id: 4,
-     nombre: "Tripel Beer", 
-     precio: 4000,
-     img: "assets/tripel.png",
-     cantidad: 1,
-    },
-    {
-     id: 5,
-     nombre: "Apa Beer", 
-     precio: 4200,
-     img: "assets/apa.png",
-     cantidad: 1,
-    },
-    {
-     id: 6,
-     nombre: "Grappa", 
-     precio: 16900,
-     img: "assets/grappa.png",
-     cantidad: 1,
-    },
-    {
-     id: 7,
-     nombre: "Vodka Absol", 
-     precio: 9500,
-     img: "assets/vodka-abs.png",
-     cantidad: 1,
-    },
-    {
-     id: 8,
-     nombre: "Oaked Gin", 
-     precio: 14800,
-     img: "assets/oaked-gin.png",
-     cantidad: 1,
-    },
-];
-
-
 // Carrito
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
                      // getItem (localStorage)          // O  // Array vacío
 
-// Método forEach para recorrer el Array
-productos.forEach((producto) => {
-    let contenedor = document.createElement("div");  // Creamos elemento
-    contenedor.className = "card";  // Le asigno una clase al contenedor
-    
-    contenedor.innerHTML = `
-      <img src="${producto.img}">
-      <h3>${producto.nombre}</h3>    
-      <p class="precio">$${producto.precio}</p>
-    `;   // Creamos las etiquetas del HTML
+const getProducts = async () => {
+    const respuesta = await fetch ("data.json");
+    const data = await respuesta.json();
 
-    contenedorProd.append(contenedor);  //Llamo al div padre y le agrego todo el contenido del contenedor
-
-    // Boton Agregar al carrito
-    let agregarCarrito = document.createElement("button"); 
-    agregarCarrito.innerText = "Agregar al carrito"; 
-    agregarCarrito.className = "boton"; 
-
-    contenedor.append(agregarCarrito); 
-
-    // EVENTO (cada vez que el usuario haga click sobre el boton, se pushea el producto dentro del carrito)
-    agregarCarrito.addEventListener("click", () =>{
-        const repeat = carrito.some((repeatProduct) => repeatProduct.id === producto.id); //Some: me devuelve un booleano
+    data.forEach((producto) => {
+        let contenedor = document.createElement("div");  // Creamos elemento
+        contenedor.className = "card";  // Le asigno una clase al contenedor
         
-        if (repeat){
-            carrito.map((prod) => {
-                if (prod.id === producto.id){
-                    prod.cantidad++;
-                }
-            });
-        } else {
-           carrito.push({
-             id: producto.id,
-             nombre: producto.nombre,
-             precio: producto.precio,
-             img: producto.img,
-             cantidad: producto.cantidad,
-            });
-            carritoContador();
-            localSave();   // setItem (localStorage)
-        }
+        contenedor.innerHTML = `
+          <img src="${producto.img}">
+          <h3>${producto.nombre}</h3>    
+          <p class="precio">$${producto.precio}</p>
+        `;   // Creamos las etiquetas del HTML
+    
+        contenedorProd.append(contenedor);  //Llamo al div padre y le agrego todo el contenido del contenedor
+    
+        // Boton Agregar al carrito
+        let agregarCarrito = document.createElement("button"); 
+        agregarCarrito.innerText = "Agregar al carrito"; 
+        agregarCarrito.className = "boton"; 
+    
+        contenedor.append(agregarCarrito); 
+    
+        // EVENTO (cada vez que el usuario haga click sobre el boton, se pushea el producto dentro del carrito)
+        agregarCarrito.addEventListener("click", () =>{
+            const repeat = carrito.some((repeatProduct) => repeatProduct.id === producto.id); //Some: me devuelve un booleano
+            
+            if (repeat){
+                carrito.map((prod) => {
+                    if (prod.id === producto.id){
+                        prod.cantidad++;
+                    }
+                });
+            } else {
+               carrito.push({
+                 id: producto.id,
+                 nombre: producto.nombre,
+                 precio: producto.precio,
+                 img: producto.img,
+                 cantidad: producto.cantidad,
+                });
+                carritoContador();
+                localSave();   // setItem (localStorage)
+            }
+        });
     });
-});
+};
+
+getProducts();
+
+
 
 
 
@@ -135,10 +82,7 @@ const localSave = () => {
 
 JSON.parse(localStorage.getItem("carrito"));
 JSON.parse(localStorage.getItem("formFooter"));
-
  
-
-
 
 // EVENTO del carrito y creación del modal que muestra el interior 
 const pintarCarrito = () => {
@@ -231,7 +175,6 @@ const pintarCarrito = () => {
     });
 };
 
-
 verCarrito.addEventListener("click", pintarCarrito);
 
 // Función para eliminar el producto del carrito
@@ -262,9 +205,6 @@ const carritoContador = () => {
 
 carritoContador();
 
-
-
-
 // Modal Finalizar Compra
 const abrirFormularioCompra = () => {
     modalContainer.innerHTML = "";
@@ -282,9 +222,10 @@ const abrirFormularioCompra = () => {
     modalButton.className = "modal-header-button";
     modalButton.addEventListener("click", () => {
       modalContainer.style.display = "none";
+
     });
     modalHeader.append(modalButton);
-  
+
     const formulario = document.createElement("form");
     formulario.className = "formulario-compra";
     formulario.innerHTML = `
@@ -294,7 +235,6 @@ const abrirFormularioCompra = () => {
         <input type="text" id="direccion" name="direccion" required><br><br>
         <button type="submit" class="confirmar-compra">Confirmar Compra</button>
     `;
-
   
   modalContainer.append(formulario);
 
@@ -305,8 +245,6 @@ const abrirFormularioCompra = () => {
     const nombre = document.getElementById("nombre").value;
     const direccion = document.getElementById("direccion").value;
 
-    console.log("Nombre:", nombre);
-    console.log("Dirección:", direccion);
 
     modalContainer.innerHTML = `
           <h2 class="h2-m">Gracias, ${nombre}!</h2>
@@ -318,15 +256,11 @@ const abrirFormularioCompra = () => {
     cerrarModalBtn.addEventListener("click", () => {
       modalContainer.style.display = "none";
 
-    });   
+    });  
   }) 
 };
 
-
-
-
-
-// Formulario del Footer
+// Footer
 formularioFooter.addEventListener ("submit", validarFormulario);
 
 function validarFormulario(e){
@@ -354,8 +288,6 @@ const respuesta = document.getElementById("boton-form");
 respuesta.addEventListener("submit", () => {
     validarFormulario();
 });
-
-
 
 
 
