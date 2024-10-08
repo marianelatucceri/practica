@@ -12,25 +12,23 @@ const modalFinal = document.getElementById("modal.finalizar");
 const formularioFooter = document.getElementById("form-footer");
 
 
-
-
 // Carrito
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-                     // getItem (localStorage)          // O  // Array vacío
+                  
 
 const getProducts = async () => {
-    const respuesta = await fetch ("data.json");
-    const data = await respuesta.json();
+    const response = await fetch ("data.json");
+    const data = await response.json();
 
     data.forEach((producto) => {
-        let contenedor = document.createElement("div");  // Creamos elemento
-        contenedor.className = "card";  // Le asigno una clase al contenedor
+        let contenedor = document.createElement("div");  //Creo elem
+        contenedor.className = "card"; //Asigno clase
         
         contenedor.innerHTML = `
           <img src="${producto.img}">
           <h3>${producto.nombre}</h3>    
           <p class="precio">$${producto.precio}</p>
-        `;   // Creamos las etiquetas del HTML
+        `;   //Creo las etiquetas del HTML
     
         contenedorProd.append(contenedor);  //Llamo al div padre y le agrego todo el contenido del contenedor
     
@@ -62,13 +60,29 @@ const getProducts = async () => {
                 carritoContador();
                 localSave();   // setItem (localStorage)
             }
+
+            Toastify({
+                text: "Producto agregado al carrito",
+                duration: 1000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                gravity: "top",
+                position: "right", 
+                stopOnFocus: true, 
+                offset: {
+                    x: "1.5rem", 
+                    y: "1.5rem", 
+                  },
+                style: {
+                  background: "rgba(44, 42, 42, 0.699)",
+                },
+                onClick: function(){} 
+            }).showToast();
         });
     });
 };
 
 getProducts();
-
-
 
 
 
@@ -151,6 +165,24 @@ const pintarCarrito = () => {
         let eliminar = carritoContent.querySelector(".delete-product");
         eliminar.addEventListener("click", () => {
             eliminarProducto(producto.id);
+
+            Toastify({
+                text: "Producto eliminado",
+                duration: 1000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                gravity: "top",
+                position: "right", 
+                stopOnFocus: true, 
+                offset: {
+                    x: "1.5rem", 
+                    y: "1.5rem", 
+                  },
+                style: {
+                  background: "rgba(44, 42, 42, 0.699)",
+                },
+                onClick: function(){} 
+            }).showToast();
         });
     });
 
@@ -198,11 +230,9 @@ const carritoContador = () => {
 
     const carritoLength = carrito.length;
     localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
-    // Agrego una variable al localStorage
 
     cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
 }
-
 carritoContador();
 
 // Modal Finalizar Compra
@@ -296,12 +326,6 @@ const respuesta = document.getElementById("boton-form");
 respuesta.addEventListener("submit", () => {
     validarFormulario();
 });
-
-
-
-
-
-
 
 
 
