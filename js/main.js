@@ -229,8 +229,16 @@ const abrirFormularioCompra = () => {
     const formulario = document.createElement("form");
     formulario.className = "formulario-compra";
     formulario.innerHTML = `
-        <label for="nombre">Nombre:</label>
+        <label for="nombre">Nombre y Apellido:</label>
         <input type="text" id="nombre" name="nombre" required><br><br>
+        <label for="nombre">Número de tarjeta débito/crédito:</label>
+        <input type="text" id="tarjeta" name="Número de tarjeta" required><br><br>
+        <label for="nombre">Nombre y Apellido del titular:</label>
+        <input type="text" id="nombretarjeta" name="nombretarjeta" required><br><br>
+        <label for="nombre">Fecha de Vencimiento:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        <label for="nombre">Código de seguridad:</label>
+        <input type="text" id="codigo" name="codigo" required><br><br>
         <label for="direccion">Dirección:</label>
         <input type="text" id="direccion" name="direccion" required><br><br>
         <button type="submit" class="confirmar-compra">Confirmar Compra</button>
@@ -248,7 +256,7 @@ const abrirFormularioCompra = () => {
 
     modalContainer.innerHTML = `
           <h2 class="h2-m">Gracias, ${nombre}!</h2>
-          <p class="p-m">Su pedido será enviado a la dirección: ${direccion}.</p>
+          <p class="p-m">Su pedido será enviado a la dirección: ${direccion} en las próximas 2 horas.</p>
           <button class="cerrar-modal">Cerrar</button>
         `;
 
