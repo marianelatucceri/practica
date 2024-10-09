@@ -285,7 +285,7 @@ div .card .boton:hover {
 .modal-container {
   width: 80%;
   margin: 0 10%;
-  max-height: 530px;
+  max-height: 590px;
   color: black;
   background-color: rgb(189, 187, 187);
   display: flex;
@@ -467,6 +467,10 @@ footer section .footer-mail form button {
   border-radius: 5px;
   margin-bottom: 40px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.41);
+}
+
+p {
+  text-align: center;
 }
 
 .titulo {
