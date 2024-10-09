@@ -308,17 +308,6 @@ const abrirFormularioCompra = () => {
 };
 
 //Form Footer
-const formularioFoot = document.createElement("form");
-    formularioFoot.className = "form-footer";
-    formularioFoot.innerHTML=`
-    <p>Sucríbete:</p>
-    <input id="nombreForm" type="text" placeholder="Ingresa tu nombre">
-    <input id="email" type="text" placeholder="Ingresa tu email">
-    <button id="boton-form" type="submit">Enviar</button>
-    `
-
-    formularioFooter.append(formularioFoot)
-
 formularioFooter.addEventListener ("submit", validarFormulario);
 
 function validarFormulario(e){
