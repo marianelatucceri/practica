@@ -1,4 +1,4 @@
-// Creo un div padre para vincular el js al html
+//Creo un div padre para vincular el js al html
 const contenedorProd = document.getElementById("contenedorProduct");
 
 const verCarrito = document.getElementById("verCarrito");
@@ -12,34 +12,35 @@ const modalFinal = document.getElementById("modal.finalizar");
 const formularioFooter = document.getElementById("form-footer");
 
 
-// Carrito
+//Carrito
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-                  
+                
 
+//Función asincrónica para leer archivo json (array de productos)
 const getProducts = async () => {
     const response = await fetch ("data.json");
     const data = await response.json();
 
     data.forEach((producto) => {
-        let contenedor = document.createElement("div");  //Creo elem
-        contenedor.className = "card"; //Asigno clase
+        let contenedor = document.createElement("div"); 
+        contenedor.className = "card";
         
         contenedor.innerHTML = `
           <img src="${producto.img}">
           <h3>${producto.nombre}</h3>    
           <p class="precio">$${producto.precio}</p>
-        `;   //Creo las etiquetas del HTML
+        `;   
     
-        contenedorProd.append(contenedor);  //Llamo al div padre y le agrego todo el contenido del contenedor
+        contenedorProd.append(contenedor);  
     
-        // Boton Agregar al carrito
+        //Boton Agregar al carrito
         let agregarCarrito = document.createElement("button"); 
         agregarCarrito.innerText = "Agregar al carrito"; 
         agregarCarrito.className = "boton"; 
     
         contenedor.append(agregarCarrito); 
     
-        // EVENTO (cada vez que el usuario haga click sobre el boton, se pushea el producto dentro del carrito)
+        //Evento agregar al carrito
         agregarCarrito.addEventListener("click", () =>{
             const repeat = carrito.some((repeatProduct) => repeatProduct.id === producto.id); //Some: me devuelve un booleano
             
@@ -58,7 +59,7 @@ const getProducts = async () => {
                  cantidad: producto.cantidad,
                 });
                 carritoContador();
-                localSave();   // setItem (localStorage)
+                localSave();   
             }
 
             Toastify({
@@ -86,7 +87,7 @@ getProducts();
 
 
 
-// localStorage
+//localStorage
 const localSave = () => {
     
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -98,12 +99,12 @@ JSON.parse(localStorage.getItem("carrito"));
 JSON.parse(localStorage.getItem("formFooter"));
  
 
-// EVENTO del carrito y creación del modal que muestra el interior 
+//Evento del carrito y creación del modal que muestra el interior 
 const pintarCarrito = () => {
     modalContainer.innerHTML = "";
     modalContainer.style.display = "block";
-    // Cuando clikeo el carrito vuelvo a ver su contenido
 
+    //Header del modal
     const modalHeader = document.createElement("div");
     modalHeader.className = "modal-header";
     modalHeader.innerHTML = `
@@ -111,20 +112,19 @@ const pintarCarrito = () => {
     `;
 
     modalContainer.append(modalHeader);
-    // Creamos el Header de la ventana
 
     const modalButton = document.createElement("h2");
     modalButton.innerText = "X";
     modalButton.className = "modal-header-button";
 
-    // Cuando clickeo la X la ventana se cierra
+    //Cierre del modal
     modalButton.addEventListener("click", () =>{
         modalContainer.style.display = "none";
-    });   // Estilo display none de css
+    });
 
     modalHeader.append(modalButton);
 
-    // Creamos los productos que se muestran por ventana
+    //Creamos los productos que se muestran por modal
     carrito.forEach((producto) => {
         let carritoContent = document.createElement("div");
         carritoContent.className = "modal-content";
@@ -187,16 +187,16 @@ const pintarCarrito = () => {
     });
 
 
-    // Footer de ventana con el Total de productos
+    //Footer de modal con el Total de productos
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
-                            //acumulador //cada producto      
+                                 
     const totalPrecio = document.createElement("div");
     totalPrecio.className = "total-content";
     totalPrecio.innerHTML = `total a pagar: $${total}`;
 
     modalContainer.append(totalPrecio);
 
-    // Boton para Finalizar Compra
+    //Boton para Finalizar Compra
     const finalizarCompra = document.createElement("button");
     finalizarCompra.innerText = "Finalizar compra";
     finalizarCompra.className = "finalizar-compra";
@@ -209,7 +209,7 @@ const pintarCarrito = () => {
 
 verCarrito.addEventListener("click", pintarCarrito);
 
-// Función para eliminar el producto del carrito
+//Función para eliminar el producto del carrito
 const eliminarProducto = (id) => {
     const foundId = carrito.find ((elemento) => elemento.id === id);
 
@@ -224,7 +224,7 @@ const eliminarProducto = (id) => {
     pintarCarrito();
 };
 
-// Contador de prod del carrito
+//Contador de prod del carrito
 const carritoContador = () => {
     cantidadCarrito.style.display = "block";
 
@@ -235,7 +235,7 @@ const carritoContador = () => {
 }
 carritoContador();
 
-// Modal Finalizar Compra
+//Modal Finalizar Compra
 const abrirFormularioCompra = () => {
     modalContainer.innerHTML = "";
     modalContainer.style.display = "block";
@@ -294,8 +294,8 @@ const abrirFormularioCompra = () => {
 
 
     modalContainer.innerHTML = `
-          <h2 class="h2-m">Gracias, ${nombre}!</h2>
-          <p class="p-m">Su pedido será enviado a la dirección: ${direccion} en las próximas 2 horas.</p>
+          <h2 class="h2-m">Listo, ${nombre}!</h2>
+          <p class="p-m">Su pedido será enviado a la dirección: ${direccion} a la brevedad. ¡Muchas gracias!</p>
           <button class="cerrar-modal">Cerrar</button>
         `;
 
@@ -307,7 +307,18 @@ const abrirFormularioCompra = () => {
   }) 
 };
 
-// Footer
+//Form Footer
+const formularioFoot = document.createElement("form");
+    formularioFoot.className = "form-footer";
+    formularioFoot.innerHTML=`
+    <p>Sucríbete:</p>
+    <input id="nombreForm" type="text" placeholder="Ingresa tu nombre">
+    <input id="email" type="text" placeholder="Ingresa tu email">
+    <button id="boton-form" type="submit">Enviar</button>
+    `
+
+    formularioFooter.append(formularioFoot)
+
 formularioFooter.addEventListener ("submit", validarFormulario);
 
 function validarFormulario(e){
